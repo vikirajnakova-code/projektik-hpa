@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: projektik-HPA
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/vikirajnakova-code/projektik-HPA.git'
+    targetRevision: HEAD
+    path: .  # Súbory sú v koreňovom priečinku repozitára
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default  # Cieľový namespace pre Jenkins aplikáciu
+  syncPolicy:
+    automated:
+      prune: true     # Ak zmažeš súbor z Git-u, Argo ho zmaže aj z klastra
+      selfHeal: true  # Ak niekto ručne prepíše klaster, Argo to vráti podľa Gitu

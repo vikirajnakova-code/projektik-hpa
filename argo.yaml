@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/vikirajnakova-code/projektik-HPA.git'
+    repoURL: 'https://github.com/vikirajnakova-code/projektik-hpa.git'
     targetRevision: HEAD
     path: .  # Súbory sú v koreňovom priečinku repozitára
   destination:
